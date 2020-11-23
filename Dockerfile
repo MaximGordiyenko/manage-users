@@ -1,12 +1,11 @@
 FROM node:12
 WORKDIR /app
-COPY bin /app/
 COPY controllers /app/
 COPY model /app/
 COPY public /app/
 COPY view /app/
 COPY .env /app/
-COPY app.js /app/
+COPY server.js /app/
 COPY db.js /app/
 COPY docker-compose.yml /app/
 COPY Dockerfile /app/

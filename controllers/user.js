@@ -2,7 +2,7 @@ const express = require('express');
 const user = express.Router();
 const User = require('../model/user');
 
-user.post('/', async (req, res, next) => {
+user.post('/', async (req, res) => {
   const { fullname, dob, gender } = req.body;
   
   const user = {
@@ -15,7 +15,7 @@ user.post('/', async (req, res, next) => {
     const findUser = await User.find({ fullname: fullname });
     if (findUser.length > 0) return res.status(409).send(`Conflict the ${findUser.length} existed in DB`);
     const createUser = User.create(user);
-    return res.status(200).send({ message: `Document with name: "${fullname}" was added to DB` });
+    return res.status(200).send({ message: `Document with name: "${fullname}" was added to DB in ${createUser}` });
   } catch (error) {
     res.status(500).send(error);
   }

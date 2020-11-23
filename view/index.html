@@ -48,8 +48,8 @@
   <form class="col s12" action="/user" method="get">
     <div class="row">
       <div class="input-field col s6">
-        <input placeholder="insert full name" id="full_name" type="text" class="validate" name="fullname">
-        <label for="full_name">Full Name</label>
+        <input placeholder="insert full name" id="full_name_get" type="text" class="validate" name="fullname">
+        <label for="full_name_get">Full Name</label>
       </div>
     </div>
     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
@@ -77,30 +77,30 @@
     <div class="row">
       <div class="input-field col s6">
         <input placeholder="insert full name"
-               id="full_name"
+               id="full_name_update"
                type="text"
                value=""
                class="validate updateFullname"
                name="fullname">
-        <label for="full_name">Full Name</label>
+        <label for="full_name_update">Full Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="dob"
+        <input id="dob_update"
                type="text"
                value=""
                class="validate updateDOB"
                name="dob">
-        <label for="dob">DOB</label>
+        <label for="dob_update">DOB</label>
       </div>
     </div>
     <div class="input-field col s12">
-      <select id="gender" name="gender">
+      <select id="gender_update" name="gender">
         <option value="male" class="updateGender">male</option>
         <option value="female" class="updateGender">female</option>
       </select><br>
-      <label for="gender">Gender:</label>
+      <label for="gender_update">Gender:</label>
     </div>
     <button class="btn waves-effect waves-light update_BTN" type="submit">Submit
       <i class="material-icons right">send</i>

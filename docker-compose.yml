@@ -6,13 +6,13 @@ services:
       context: .
       dockerfile: Dockerfile
     image: node:12
-    container_name: node-user
+    container_name: node_user
     ports:
       - "7000:7000"
   
   db:
     image: mongo:4.2
-    container_name: mongo-user
+    container_name: mongo_user
     environment:
       - MONGO_DATA_DIR:"/data/db"
       - MONGO_INITDB_DATABASE:"test"
