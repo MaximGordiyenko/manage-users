@@ -4,19 +4,12 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
 
 const usersController = require('./controllers/user');
 const database = require('./db');
 
 const app = express();
 database.db();
-
-const envConfig = dotenv.config();
-if (envConfig.error) {
-  console.log('.env file does not loaded');
-  throw envConfig.error;
-}
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
