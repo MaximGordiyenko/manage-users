@@ -4,6 +4,13 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+const envConfig = dotenv.config();
+
+if (envConfig.error) {
+  console.log('.env file does not loaded');
+  throw envConfig.error;
+}
 
 const usersController = require('./controllers/user');
 const database = require('./db');
@@ -25,4 +32,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', express.static('view/'))
 app.use('/user', usersController);
 
-module.exports = app;
+app.listen(process.env.PORT, () => console.log(`tracker running on port: ${process.env.PORT}`));
