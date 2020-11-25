@@ -1,18 +1,22 @@
+# "version" - it's number of last relevant version of configs for docker-compose
 version: "3.8"
+# "services" - defines one o more services which can be build from dockerfile or pull from docker hub
 services:
-  
-  user:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: node:latest
-    container_name: node_user
+  # "webapp" - it's custom service which built from Dockerfile
+  webapp:
+    # "build" - Points on the current project directory where is contain Dockerfile with configs for create image
+    build: server/
+    # "image" - defines a name and tag for custom image
+    image: webapp:1
+    # "port" - define port as same as server port for run project
     ports:
       - "7000:7000"
-  
+  # "db" - it's the image that pull from docker hub
   db:
+    # "" -
     image: mongo:4.2
-    container_name: mongo_user
+    # "restart" - restart a container if any circumstance
+    restart: always
     environment:
       - MONGO_DATA_DIR:"/data/db"
       - MONGO_INITDB_DATABASE:"test"
@@ -22,6 +26,6 @@ services:
       - ./data:/data/db
     ports:
       - "27017:27017"
-
+# https://docs.docker.com/compose/compose-file/#volumes
 volumes:
   db-data:

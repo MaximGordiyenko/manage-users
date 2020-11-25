@@ -27,9 +27,9 @@ server.use(logger('dev'));
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 server.use(cookieParser());
-server.use(express.static(path.join(__dirname, 'public')));
+server.use(express.static(path.join(__dirname, 'view/public')));
 
-server.use('/users', express.static('view/'));
+server.use('/users', express.static(path.join(__dirname, 'view/users')));
 server.use('/user', usersController);
 
 server.listen(process.env.PORT, () => console.log(`tracker running on port: ${process.env.PORT}`));
